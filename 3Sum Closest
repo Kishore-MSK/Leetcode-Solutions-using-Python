@@ -1,0 +1,19 @@
+class Solution(object):
+    def threeSumClosest(self, nums, target):
+        nums.sort()
+        sm=float("inf")
+        for i in range(len(nums)-2):
+            lpoint = i + 1
+            rpoint=len(nums) - 1  
+            while lpoint < rpoint:
+                c_sm = nums[i] + nums[lpoint] + nums[rpoint]
+                if abs(c_sm-target) < abs(sm-target):
+                    sm = c_sm
+                if c_sm < target:
+                    lpoint += 1
+                elif c_sm > target:
+                    rpoint -= 1
+                else:
+                    return c_sm
+        return sm
+        

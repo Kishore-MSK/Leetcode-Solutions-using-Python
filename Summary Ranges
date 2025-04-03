@@ -1,0 +1,17 @@
+class Solution(object):
+    def summaryRanges(self, nums):       
+        output = []               
+        i = 0
+        while i < len(nums):          
+            b_value=nums[i]         
+            while i+1 < len(nums) and nums[i+1] == nums[i] + 1:
+                i += 1  
+            l_value = nums[i]
+        
+            if b_value == l_value:
+                output.append(str(b_value))
+            
+            else:
+                output.append(str(b_value) + "->" + str(l_value))
+            i += 1
+        return output
